@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import org.planetservers.ps.types.Room;
 
 public class RoomMain extends Room {
-
+	
 	@Override
 	public void create() {
 	}
