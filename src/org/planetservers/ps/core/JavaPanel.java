@@ -15,6 +15,9 @@ import org.planetservers.ps.managers.RoomManager;
 @SuppressWarnings("serial")
 public class JavaPanel extends JPanel implements ActionListener {
 
+	private static final Integer width = 960;
+	private static final Integer height = 540;
+	
 	private RoomManager rm = new RoomManager();
 	public static BufferedImage image;
 	
@@ -23,7 +26,7 @@ public class JavaPanel extends JPanel implements ActionListener {
 		setFocusable(true);
 		requestFocus();
 		
-		setPreferredSize(new Dimension(640, 360));
+		setPreferredSize(new Dimension(width / 2, height / 2));
 		addKeyListener(new Keyboard());
 		Keyboard.setup();
 		rm.create();
@@ -39,13 +42,23 @@ public class JavaPanel extends JPanel implements ActionListener {
 	}
 	
 	@Override
+	public int getWidth() {
+		return width * 2;
+	}
+	
+	@Override
+	public int getHeight() {
+		return height * 2;
+	}
+	
+	@Override
 	public void paint(Graphics g) {
 		image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
 		Graphics2D g2 = image.createGraphics();
 		g2.setColor(new Color(0xE0E0E0));
 		g2.fillRect(0, 0, getWidth(), getHeight());
 		rm.draw(g2);
-		g.drawImage(image, 0, 0, null);
+		g.drawImage(image, 0, 0, getWidth() / 2, getHeight() / 2, null);
 		repaint();
 	}
 	
