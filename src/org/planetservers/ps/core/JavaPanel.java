@@ -23,7 +23,7 @@ public class JavaPanel extends JPanel implements ActionListener {
 		setFocusable(true);
 		requestFocus();
 		
-		setPreferredSize(new Dimension(500, 500));
+		setPreferredSize(new Dimension(640, 360));
 		addKeyListener(new Keyboard());
 		Keyboard.setup();
 		rm.create();
