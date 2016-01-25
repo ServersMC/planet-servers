@@ -16,7 +16,7 @@ import org.planetservers.ps.managers.RoomManager;
 public class JavaPanel extends JPanel implements ActionListener {
 
 	private RoomManager rm = new RoomManager();
-	public static BufferedImage image;
+	private static BufferedImage image;
 	
 	public JavaPanel() {
 		super();
@@ -47,6 +47,10 @@ public class JavaPanel extends JPanel implements ActionListener {
 		rm.draw(g2);
 		g.drawImage(image, 0, 0, null);
 		repaint();
+	}
+	
+	public static BufferedImage getScreenImage() {
+		return image;
 	}
 	
 }
