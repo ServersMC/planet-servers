@@ -5,7 +5,7 @@ import org.planetservers.ps.core.Display;
 import org.planetservers.ps.enums.ImageEnum;
 import org.planetservers.ps.types.Room;
 
-public class RoomMain extends Room {
+public class RoomServer extends Room {
 	
 	@Override
 	public void create() {

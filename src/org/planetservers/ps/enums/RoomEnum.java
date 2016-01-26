@@ -1,11 +1,11 @@
 package org.planetservers.ps.enums;
 
-import org.planetservers.ps.rooms.RoomMain;
+import org.planetservers.ps.rooms.RoomServer;
 import org.planetservers.ps.types.Room;
 
 public enum RoomEnum {
 
-	MAIN(new RoomMain());
+	SERVER(new RoomServer());
 	
 	public Room room;
 	public Integer id;

@@ -6,7 +6,7 @@ import org.planetservers.ps.types.Room;
 
 public class RoomManager {
 
-	private Room room = RoomEnum.MAIN.room;
+	private Room room = RoomEnum.SERVER.room;
 
 	public void setRoom(Room room) {
 		this.room = room;
