@@ -14,9 +14,9 @@ public class Main {
 		f.setTitle("PlanetServers a" + (getBuild() + 1));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(new JavaPanel());
-		f.setVisible(true);
 		f.setResizable(false);
 		f.pack();
+		f.setVisible(true);
 		f.setLocationRelativeTo(null);
 		updateBuild();
 	}
