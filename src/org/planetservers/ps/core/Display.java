@@ -14,7 +14,7 @@ import org.planetservers.ps.listeners.Keyboard;
 import org.planetservers.ps.managers.RoomManager;
 
 @SuppressWarnings("serial")
-public class JavaPanel extends JPanel implements ActionListener {
+public class Display extends JPanel implements ActionListener {
 
 	public static Integer width = 960;
 	public static Integer height = 540;
@@ -22,7 +22,7 @@ public class JavaPanel extends JPanel implements ActionListener {
 	private RoomManager rm = new RoomManager();
 	private BufferedImage image;
 	
-	public JavaPanel() {
+	public Display() {
 		setFocusable(true);
 		requestFocus();
 		

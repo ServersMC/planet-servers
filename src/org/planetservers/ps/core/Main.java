@@ -13,7 +13,7 @@ public class Main {
 		JFrame f = new JFrame();
 		f.setTitle("PlanetServers a" + (getBuild() + 1));
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.add(new JavaPanel());
+		f.add(new Display());
 		f.setResizable(false);
 		f.pack();
 		f.setVisible(true);
