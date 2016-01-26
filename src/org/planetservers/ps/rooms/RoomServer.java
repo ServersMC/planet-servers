@@ -9,17 +9,18 @@ import org.planetservers.ps.types.Room;
 
 public class RoomServer extends Room {
 	
-	Background bg = new Background();
-	Button test = new Button();
+	Background bg;
+	Button test;
 	
 	@Override
 	public void create() {
-		bg.image = ImageEnum.BG_BACKGROUND.image;
-		test.text = "TEST MESSAGE";
-		test.x = Display.width / 2;
-		test.y = Display.height / 2;
-		test.width = Display.width / 2;
-		test.height = Display.height / 10;
+		bg = new Background(ImageEnum.BG_BACKGROUND.image);
+		test = new Button("Test Message", // message
+				Display.width / 2, // x
+				Display.height / 2, // y
+				Display.width / 2, // width
+				Display.height / 10, // height
+				new Thread()); // thread
 	}
 
 	@Override

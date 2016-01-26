@@ -3,15 +3,26 @@ package org.planetservers.ps.types;
 import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 public class Button {
 
 	public String text;
-	public Integer width, height, x, y;
+	public Integer x, y, width, height;
 	public Thread thread;
+	public Rectangle bounds;
+	
+	public Button(String text, Integer x, Integer y, Integer width, Integer height, Thread thread) {
+		this.text = text;
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		this.thread = thread;
+	}
 	
 	public void update() {
-		
+		bounds = new Rectangle(x, y, width, height);
 	}
 	
 	public void draw(Graphics2D g) {
