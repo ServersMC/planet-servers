@@ -15,8 +15,8 @@ public class Main {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.add(new JavaPanel());
 		f.setVisible(true);
-		f.pack();
 		f.setResizable(false);
+		f.pack();
 		f.setLocationRelativeTo(null);
 		updateBuild();
 	}
