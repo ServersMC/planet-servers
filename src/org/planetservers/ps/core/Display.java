@@ -26,7 +26,7 @@ public class Display extends JPanel implements ActionListener {
 		setFocusable(true);
 		requestFocus();
 		
-		setPreferredSize(new Dimension(width / 2, height / 2));
+		setPreferredSize(new Dimension((width / 3) * 2, (height / 3) * 2));
 		addKeyListener(new Keyboard());
 		Keyboard.setup();
 		rm.create();
@@ -49,7 +49,7 @@ public class Display extends JPanel implements ActionListener {
 		g2.setColor(new Color(0xE0E0E0));
 		g2.fillRect(0, 0, width, height);
 		rm.draw(g2);
-		g.drawImage(image, 0, 0, width / 2, height / 2, null);
+		g.drawImage(image, 0, 0, (width / 3) * 2, (height / 3) * 2, null);
 		repaint();
 	}
 	

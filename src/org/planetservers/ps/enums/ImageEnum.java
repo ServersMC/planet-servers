@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 
 public enum ImageEnum {
 
-	BG_BACKGROUND("/bg/background.jpg");
+	BG_BACKGROUND("/bg/background.png");
 
 	public BufferedImage image;
 	
