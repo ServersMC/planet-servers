@@ -47,7 +47,7 @@ public class JavaPanel extends JPanel implements ActionListener {
 		Graphics2D g2 = image.createGraphics();
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setColor(new Color(0xE0E0E0));
-		g2.fillRect(0, 0, width * 2, height * 2);
+		g2.fillRect(0, 0, width, height);
 		rm.draw(g2);
 		g.drawImage(image, 0, 0, width / 2, height / 2, null);
 		repaint();
