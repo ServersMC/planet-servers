@@ -8,9 +8,12 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
 import org.planetservers.ps.listeners.Keyboard;
+import org.planetservers.ps.listeners.Mouse;
 import org.planetservers.ps.managers.RoomManager;
 
 @SuppressWarnings("serial")
@@ -19,15 +22,19 @@ public class Display extends JPanel implements ActionListener {
 	public static Integer width = 960;
 	public static Integer height = 540;
 	
-	private RoomManager rm = new RoomManager();
-	private BufferedImage image;
+	RoomManager rm = new RoomManager();
+	BufferedImage image;
+	Keyboard keyboard = new Keyboard();
+	Mouse mouse = new Mouse();
 	
 	public Display() {
 		setFocusable(true);
 		requestFocus();
 		
 		setPreferredSize(new Dimension((width / 3) * 2, (height / 3) * 2));
-		addKeyListener(new Keyboard());
+		addKeyListener(keyboard);
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
 		Keyboard.setup();
 		rm.create();
 		rm.init();
