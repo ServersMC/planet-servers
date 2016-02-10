@@ -6,28 +6,28 @@ import org.planetservers.ps.types.Room;
 
 public class RoomManager {
 
-	private Room room = RoomEnum.SERVER.room;
+	private static Room room = RoomEnum.SERVER.room;
 
-	public void setRoom(Room room) {
-		this.room = room;
+	public static void setRoom(Room room) {
+		RoomManager.room = room;
 		init();
 	}
 	
-	public void create() {
+	public static void create() {
 		for (RoomEnum roomenum : RoomEnum.values()) {
 			roomenum.room.create();
 		}
 	}
 	
-	public void init() {
+	public static void init() {
 		room.init();
 	}
 	
-	public void update() {
+	public static void update() {
 		room.update();
 	}
 	
-	public void draw(Graphics2D g) {
+	public static void draw(Graphics2D g) {
 		room.draw(g);
 	}
 	

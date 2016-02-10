@@ -3,8 +3,8 @@ package org.planetservers.ps.rooms;
 import java.awt.Graphics2D;
 import org.planetservers.ps.core.Display;
 import org.planetservers.ps.enums.ImageEnum;
+import org.planetservers.ps.objects.Button;
 import org.planetservers.ps.types.Background;
-import org.planetservers.ps.types.Button;
 import org.planetservers.ps.types.Room;
 
 public class RoomServer extends Room {
