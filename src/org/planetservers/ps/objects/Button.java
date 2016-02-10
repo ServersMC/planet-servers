@@ -1,4 +1,4 @@
-package org.planetservers.ps.types;
+package org.planetservers.ps.objects;
 
 import java.awt.Color;
 import java.awt.FontMetrics;
