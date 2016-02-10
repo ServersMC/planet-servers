@@ -8,9 +8,12 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
 import org.planetservers.ps.listeners.Keyboard;
+import org.planetservers.ps.listeners.Mouse;
 import org.planetservers.ps.managers.RoomManager;
 
 @SuppressWarnings("serial")
@@ -19,24 +22,29 @@ public class Display extends JPanel implements ActionListener {
 	public static Integer width = 960;
 	public static Integer height = 540;
 	
+	RoomManager rm = new RoomManager();
 	BufferedImage image;
+	Keyboard keyboard = new Keyboard();
+	Mouse mouse = new Mouse();
 	
 	public Display() {
 		setFocusable(true);
 		requestFocus();
 		
 		setPreferredSize(new Dimension((width / 3) * 2, (height / 3) * 2));
-		addKeyListener(new Keyboard());
+		addKeyListener(keyboard);
+		addMouseListener(mouse);
+		addMouseMotionListener(mouse);
 		Keyboard.setup();
-		RoomManager.create();
-		RoomManager.init();
+		rm.create();
+		rm.init();
 		
 		new Timer(1000/24, this).start();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		RoomManager.update();
+		rm.update();
 		Keyboard.reset();
 	}
 
@@ -50,7 +58,7 @@ public class Display extends JPanel implements ActionListener {
 		setRenderingHints(g2);
 		g2.setColor(new Color(0xE0E0E0));
 		g2.fillRect(0, 0, width, height);
-		RoomManager.draw(g2);
+		rm.draw(g2);
 		g1.drawImage(image, 0, 0, (width / 3) * 2, (height / 3) * 2, null);
 		repaint();
 	}
