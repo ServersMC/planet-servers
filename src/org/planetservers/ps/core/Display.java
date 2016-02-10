@@ -22,7 +22,6 @@ public class Display extends JPanel implements ActionListener {
 	public static Integer width = 960;
 	public static Integer height = 540;
 	
-	RoomManager rm = new RoomManager();
 	BufferedImage image;
 	Keyboard keyboard = new Keyboard();
 	Mouse mouse = new Mouse();
@@ -36,15 +35,15 @@ public class Display extends JPanel implements ActionListener {
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
 		Keyboard.setup();
-		rm.create();
-		rm.init();
+		RoomManager.create();
+		RoomManager.init();
 		
 		new Timer(1000/24, this).start();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		rm.update();
+		RoomManager.update();
 		Keyboard.reset();
 	}
 
@@ -58,7 +57,7 @@ public class Display extends JPanel implements ActionListener {
 		setRenderingHints(g2);
 		g2.setColor(new Color(0xE0E0E0));
 		g2.fillRect(0, 0, width, height);
-		rm.draw(g2);
+		RoomManager.draw(g2);
 		g1.drawImage(image, 0, 0, (width / 3) * 2, (height / 3) * 2, null);
 		repaint();
 	}
