@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+import javafx.scene.input.MouseButton;
 
 public class Mouse implements MouseListener, MouseMotionListener {
 
@@ -14,7 +15,7 @@ public class Mouse implements MouseListener, MouseMotionListener {
 	private static ArrayList<Boolean> rkeys = new ArrayList<Boolean>();
 
 	public static void setup() {
-		for (int i = 0; i < MouseEvent.BUTTON3; i++) {
+		for (int i = 0; i < MouseButton.values().length; i++) {
 			keys.add(false);
 			pkeys.add(false);
 			rkeys.add(false);

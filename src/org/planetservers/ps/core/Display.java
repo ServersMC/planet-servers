@@ -35,6 +35,7 @@ public class Display extends JPanel implements ActionListener {
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
 		Keyboard.setup();
+		Mouse.setup();
 		RoomManager.create();
 		RoomManager.init();
 		
@@ -45,6 +46,7 @@ public class Display extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		RoomManager.update();
 		Keyboard.reset();
+		Mouse.reset();
 	}
 
 	@Override
