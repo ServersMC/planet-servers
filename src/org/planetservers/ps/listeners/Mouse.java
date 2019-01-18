@@ -1,10 +1,14 @@
 package org.planetservers.ps.listeners;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
+
 import javafx.scene.input.MouseButton;
 
 public class Mouse implements MouseListener, MouseMotionListener {
@@ -73,5 +77,13 @@ public class Mouse implements MouseListener, MouseMotionListener {
 	public void mouseExited(MouseEvent e) {}
 	@Override
 	public void mouseClicked(MouseEvent e) {}
+
+	public static void debug(Graphics2D g) {
+		g.setColor(new Color(0x0));
+		g.setFont(g.getFont().deriveFont(15f).deriveFont(Font.BOLD));
+		g.drawString("X: " + point.getX(), 5, 25);
+		g.drawString("Y: " + point.getY(), 5, 45);
+		g.fillRect((int) Mouse.getPoint().getX() - 5, (int) Mouse.getPoint().getY() - 5, 10, 10);
+	}
 	
 }

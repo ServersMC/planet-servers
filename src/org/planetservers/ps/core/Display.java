@@ -19,8 +19,8 @@ import org.planetservers.ps.managers.RoomManager;
 @SuppressWarnings("serial")
 public class Display extends JPanel implements ActionListener {
 
-	public static Integer width = 960;
-	public static Integer height = 540;
+	public static Integer width = 480;
+	public static Integer height = 270;
 	
 	BufferedImage image;
 	Keyboard keyboard = new Keyboard();
@@ -30,7 +30,7 @@ public class Display extends JPanel implements ActionListener {
 		setFocusable(true);
 		requestFocus();
 		
-		setPreferredSize(new Dimension((width / 3) * 2, (height / 3) * 2));
+		setPreferredSize(new Dimension(width, height));
 		addKeyListener(keyboard);
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
@@ -60,16 +60,13 @@ public class Display extends JPanel implements ActionListener {
 		g2.setColor(new Color(0xE0E0E0));
 		g2.fillRect(0, 0, width, height);
 		RoomManager.draw(g2);
-		g1.drawImage(image, 0, 0, (width / 3) * 2, (height / 3) * 2, null);
+		g1.drawImage(image, 0, 0, width, height, null);
 		repaint();
 	}
 	
 	public void setRenderingHints(Graphics2D g) {
-		g.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF);
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-		g.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
 	}
 	
 }

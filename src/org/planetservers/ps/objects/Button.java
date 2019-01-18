@@ -5,8 +5,18 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import org.planetservers.ps.listeners.Mouse;
+
 public class Button {
 
+	private Color BG_NORM = new Color(0x0);
+	private Color BG_HOVER = new Color(0x99000000, true);
+	private Color BG_COLOR = BG_NORM;
+	
+	private Color TXT_NORM = new Color(0xFFFFFF);
+	private Color TXT_HOVER = new Color(0x99FFFFFF, true);
+	private Color TXT_COLOR = TXT_NORM;
+	
 	public String text;
 	public Integer x, y, width, height;
 	public Thread thread;
@@ -14,23 +24,36 @@ public class Button {
 	
 	public Button(String text, Integer x, Integer y, Integer width, Integer height, Thread thread) {
 		this.text = text;
-		this.x = x;
-		this.y = y;
+		this.x = x - (width / 2);
+		this.y = y - (height / 2);
 		this.width = width;
 		this.height = height;
 		this.thread = thread;
+		bounds = new Rectangle(this.x, this.y, width, height);
 	}
 	
 	public void update() {
-		bounds = new Rectangle(x, y, width, height);
+		if (bounds.contains(Mouse.getPoint())) {
+			BG_COLOR = BG_HOVER;
+			TXT_COLOR = TXT_HOVER;
+			
+			if (Mouse.isPressed(1)) {
+				thread.run();
+			}
+		}
+		else {
+			BG_COLOR = BG_NORM;
+			TXT_COLOR = TXT_NORM;
+		}
 	}
 	
 	public void draw(Graphics2D g) {
-		g.setColor(new Color(0x0));
-		g.fillRect(x - (width / 2), y - (height / 2), width, height);
-		g.setColor(new Color(0xFFFFFF));
+		g.setColor(BG_COLOR);
+		g.fillRect(x, y, width, height);
+		g.setColor(TXT_COLOR);
+		g.setFont(g.getFont().deriveFont(15f));
 		FontMetrics fm = g.getFontMetrics(g.getFont());
-		g.drawString(text, x - (fm.stringWidth(text) / 2), y + (fm.getHeight() / 4));
+		g.drawString(text, x - (fm.stringWidth(text) / 2) + (width / 2), y + (fm.getHeight() / 4) + (height / 2));
 	}
 	
 }
